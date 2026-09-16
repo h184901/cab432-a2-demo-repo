@@ -67,10 +67,14 @@ class TodoTests(unittest.TestCase):
         self.successful("add", "a" * 80)
         self.assertEqual(self.state()["tasks"][0]["title"], "a" * 80)
 
-    def test_rejects_eighty_one_character_title_without_write(self):
+    def test_accepts_one_hundred_character_title(self):
+        self.successful("add", "a" * 100)
+        self.assertEqual(self.state()["tasks"][0]["title"], "a" * 100)
+
+    def test_rejects_one_hundred_one_character_title_without_write(self):
         self.successful("add", "Keep this task")
         before = self.file.read_bytes()
-        result = self.run_cli("add", "a" * 81)
+        result = self.run_cli("add", "a" * 101)
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("Title must be at most", result.stderr)
         self.assertEqual(self.file.read_bytes(), before)

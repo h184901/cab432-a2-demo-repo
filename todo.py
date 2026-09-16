@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 
-MAX_TASK_LENGTH = 80
+MAX_TASK_LENGTH = 100
 
 
 def load_state(path):
