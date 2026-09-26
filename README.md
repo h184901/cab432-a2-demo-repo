@@ -44,7 +44,7 @@ known whitespace-only input defect. It remains open for the maintenance demo.
 
 ## Limits
 
-- A task title can contain up to 80 characters after trimming surrounding spaces.
+- A task title can contain up to 100 characters after trimming surrounding spaces.
 - This is a single-user local tool, without login, due dates or concurrent writes.
 - An empty string is rejected, but spaces alone currently create a blank task.
 
